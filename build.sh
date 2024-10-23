@@ -2,7 +2,7 @@
 
 set -ouex pipefail
 
-case "${SOURCE_IMAGE}" in
+case "${IMAGE}" in
 "bluefin"*)
     /ctx/build_files/desktop-changes.sh
     /ctx/build_files/desktop-packages.sh

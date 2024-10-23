@@ -4,7 +4,7 @@ set -euox pipefail
 
 echo "Tweaking existing server config..."
 
-if [[ ${SOURCE_IMAGE} =~ ucore ]]; then
+if [[ ${IMAGE} =~ ucore ]]; then
     # moby-engine packages on uCore conflict with docker-ce
     rpm-ostree override remove \
         containerd moby-engine runc

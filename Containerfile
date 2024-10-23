@@ -1,13 +1,14 @@
-ARG SOURCE_IMAGE="bluefin"
-ARG SOURCE_SUFFIX=""
-ARG SOURCE_TAG="stable-daily"
+ARG BASE_IMAGE="bluefin"
+ARG IMAGE="bluefin"
+ARG TAG_VERSION="stable-daily"
 
 FROM scratch AS ctx
 COPY / /
 
-FROM ghcr.io/ublue-os/${SOURCE_IMAGE}${SOURCE_SUFFIX}:${SOURCE_TAG}
+FROM ghcr.io/ublue-os/${BASE_IMAGE}:${TAG_VERSION}
 
-ARG SOURCE_IMAGE="bluefin"
+ARG BASE_IMAGE="bluefin"
+ARG IMAGE="bluefin"
 
 RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     --mount=type=bind,from=ctx,src=/,dst=/ctx \

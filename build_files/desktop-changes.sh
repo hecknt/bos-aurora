@@ -4,7 +4,7 @@ set -euox pipefail
 
 echo "Tweaking existing desktop config..."
 
-if [[ ${SOURCE_IMAGE} =~ bluefin ]] || [[ ${SOURCE_IMAGE} =~ bazzite-gnome ]]; then
+if [[ ${IMAGE} =~ bluefin ]] || [[ ${IMAGE} =~ bazzite ]]; then
   rsync -rvK /ctx/system_files/silverblue/ /
   # custom gnome overrides
   mkdir -p /tmp/ublue-schema-test && \
