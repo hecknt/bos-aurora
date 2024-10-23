@@ -2,9 +2,10 @@
 
 set -euox pipefail
 
-if [[ ${SOURCE_IMAGE} =~ ucore ]]; then
-    echo "cleanup packages on uCore which conflict with common server packages"
+echo "Tweaking existing server config..."
 
+if [[ ${SOURCE_IMAGE} =~ ucore ]]; then
+    # moby-engine packages on uCore conflict with docker-ce
     rpm-ostree override remove \
         containerd moby-engine runc
     rm -f /usr/bin/docker-compose

@@ -1,0 +1,11 @@
+[org.gnome.desktop.interface]
+cursor-theme="Adwaita"
+icon-theme="Adwaita"
+gtk-theme="Adwaita"
+font-name="Inter 11"
+document-font-name="Inter 11"
+monospace-font-name="IBM Plex Mono 12"
+
+[org.gnome.desktop.wm.preferences]
+theme="Adwaita"
+titlebar-font="Inter Bold 11"
