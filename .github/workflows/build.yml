@@ -31,9 +31,9 @@ jobs:
 #    with:
 #        tag_version: beta
 
-#  push-server:
-#    uses: ./.github/workflows/build-server.yml
-#    secrets: inherit
+  push-server:
+    uses: ./.github/workflows/build-server.yml
+    secrets: inherit
 
 #  build-iso:
 #    uses: ./.github/workflows/build-iso.yml
