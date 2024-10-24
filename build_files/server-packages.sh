@@ -20,4 +20,5 @@ rpm-ostree install \
   nmap \
   p7zip \
   p7zip-plugins \
+  socat \
   unrar
