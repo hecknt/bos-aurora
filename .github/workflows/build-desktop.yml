@@ -26,8 +26,6 @@ jobs:
       matrix:
         image:
           #- bazzite-deck-gnome
-          #- bazzite-gnome
-          #- bazzite-gnome-nvidia
           - bluefin
           - bluefin-nvidia
         tag_version:
@@ -116,9 +114,6 @@ jobs:
           "bazzite-deck"*)
             tag="bazzite-deck"
             ;;
-          "bazzite-gnome-nvidia"*)
-            tag="bazzite-nvidia"
-            ;;
           "bazzite"*)
             tag="bazzite"
             ;;
@@ -170,8 +165,6 @@ jobs:
             org.opencontainers.image.title=${{ env.IMAGE_STYLED }}
             org.opencontainers.image.description=${{ env.IMAGE_STYLED }} is my customized image of various ublue projects
             org.opencontainers.image.version=${{ env.version }}
-          # ostree.linux should already be set on our upstream 
-          #  ostree.linux=${{ env.kernel_release }}
 
       - name: Load into Podman and Tag
         shell: bash

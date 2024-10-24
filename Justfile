@@ -1,5 +1,5 @@
 images := '(
-    [bazzite]="bazzite-gnome-nvidia"
+    [bazzite]="bazzite-gnome"
     [bazzite-deck]="bazzite-deck-gnome"
     [bluefin]="bluefin"
     [bluefin-nvidia]="bluefin-nvidia"
