@@ -4,7 +4,7 @@ set -euox pipefail
 
 echo "Tweaking existing desktop config..."
 
-if [[ ${IMAGE} =~ bluefin ]] || [[ ${IMAGE} =~ bazzite ]]; then
+if [[ ${IMAGE} =~ bluefin|bazzite ]]; then
   rsync -rvK /ctx/system_files/silverblue/ /
   # custom gnome overrides
   mkdir -p /tmp/ublue-schema-test && \
