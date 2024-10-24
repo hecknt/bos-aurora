@@ -42,7 +42,7 @@ build image="bluefin":
         BUILD_ARGS+=("--tag" "localhost/bos:${image}")
         ;;
     "ucore-hci"*)
-        skopeo inspect docker://ghcr.io/ublue-os/ucore:${check} > /tmp/inspect.json
+        skopeo inspect docker://ghcr.io/ublue-os/ucore-hci:${check} > /tmp/inspect.json
         BUILD_ARGS+=("--build-arg" "BASE_IMAGE=ucore-hci")
         BUILD_ARGS+=("--build-arg" "TAG_VERSION=${check}")
         BUILD_ARGS+=("--tag" "localhost/bos:${image}")
