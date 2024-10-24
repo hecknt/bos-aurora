@@ -25,3 +25,6 @@ ln -s /usr/libexec/docker/cli-plugins/docker-compose /usr/bin/docker-compose
 # Docker sysctl.d
 mkdir -p /usr/lib/sysctl.d
 echo "net.ipv4.ip_forward = 1" >/usr/lib/sysctl.d/docker-ce.conf
+
+# disable repo
+sed -i "s@enabled=1@enabled=0@" /etc/yum.repos.d/docker-ce.repo
