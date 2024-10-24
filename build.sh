@@ -6,6 +6,7 @@ case "${IMAGE}" in
 "bluefin"*)
     /ctx/build_files/desktop-changes.sh
     /ctx/build_files/desktop-packages.sh
+    /ctx/build_files/steam.sh
     ;;
 "bazzite"*)
     /ctx/build_files/desktop-changes.sh
