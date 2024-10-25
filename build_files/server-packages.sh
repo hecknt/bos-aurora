@@ -8,11 +8,12 @@ echo "Running server packages scripts..."
 # common packages installed to desktops and servers
 rpm-ostree install \
   bc \
-  btop \
+  erofs-utils \
   hdparm \
   iotop \
   ipcalc \
   iperf3 \
+  just \
   lm_sensors \
   lshw \
   lzip \
