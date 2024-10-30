@@ -2,6 +2,8 @@ images := '(
     [bazzite]="bazzite-gnome"
     [bazzite-deck]="bazzite-deck-gnome"
     [bluefin]="bluefin"
+    [bluefin-dx]="bluefin-dx"
+    [bluefin-dx-nvidia]="bluefin-dx-nvidia"
     [bluefin-nvidia]="bluefin-nvidia"
     [ucore-hci]="stable-zfs"
     [ucore-hci-nvidia]="stable-nvidia-zfs"
@@ -55,7 +57,7 @@ build image="bluefin":
         ;;
     esac
     buildah build --format docker --label "org.opencontainers.image.description=bOS is my customized image of various ublue projects" ${BUILD_ARGS[@]} .
-    
+
 # Build bos Beta Image
 build-beta image="bluefin":
     #!/usr/bin/bash
@@ -190,4 +192,4 @@ build-rechunk image="bluefin": (build image) (rechunk image)
 # Cleanup
 clean:
     find ${PWD}/bos_* -maxdepth 0 -exec rm -rf {} \; || true
-    rm -rf previous.manifest.json 
+    rm -rf previous.manifest.json
