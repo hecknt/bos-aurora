@@ -11,11 +11,18 @@ if [ -d /usr/libexec/rpm-ostree/wrapped ]; then
         /usr/bin/dnf \
         /usr/bin/kernel-install
     # binaries which were wrapped
-    mv -f /usr/libexec/rpm-ostree/* /usr/bin
+    mv -f /usr/libexec/rpm-ostree/wrapped/* /usr/bin
     rm -fr /usr/libexec/rpm-ostree
 fi
 
-rpm-ostree install dnf5
+rpm-ostree install dnf5 dnf5-plugins
+
+# temp until https://github.com/ublue-os/main/pull/665 trickles down:
+mkdir -p /usr/share/dnf/plugins
+cat << EOF > /usr/share/dnf/plugins/copr.vendor.conf
+[main]
+distribution = fedora
+EOF
 
 case "${IMAGE}" in
 "bluefin"*)
