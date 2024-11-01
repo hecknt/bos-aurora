@@ -168,7 +168,7 @@ rechunk image="bluefin":
         -v "$PWD:/var/git" \
         -v cache_ostree:/var/ostree \
         -e REPO=/var/ostree/repo \
-        -e PREV_REF=ghcr.io/m2giles/bos:{{image}} \
+        -e PREV_REF=ghcr.io/bsherman/bos:{{image}} \
         -e LABELS="$LABELS" \
         -e OUT_NAME="$OUT_NAME" \
         -e VERSION_FN=/workspace/version.txt \
