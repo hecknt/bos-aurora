@@ -65,7 +65,7 @@ jobs:
           command: |
             set -eoux pipefail
             sudo podman pull ghcr.io/ublue-os/${{ env.base_image }}:${{ env.tag_version }}
-            sudo podman pull ghcr.io/hhd-dev/rechunk:v0.8.6
+            sudo podman pull ghcr.io/hhd-dev/rechunk:v1.0.1
 
       - name: Checkout Push to Registry Action
         uses: actions/checkout@v4
@@ -120,12 +120,12 @@ jobs:
 
       - name: Rechunk Image
         id: rechunk
-        uses: hhd-dev/rechunk@v0.8.6
+        uses: hhd-dev/rechunk@v1.0.1
         with:
           ref: "raw-img"
           prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.generate_tags.outputs.default_tag }}"
           version: "${{ env.version }}"
-          rechunk: "ghcr.io/hhd-dev/rechunk:v0.8.6"
+          rechunk: "ghcr.io/hhd-dev/rechunk:v1.0.1"
           labels: |
             org.opencontainers.image.title=${{ env.IMAGE_STYLED }}
             org.opencontainers.image.description=${{ env.IMAGE_STYLED }} is my customized image of various ublue projects
