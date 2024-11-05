@@ -36,7 +36,7 @@ Use the installation method for the respective upstream, Bluefin, uCore, etc.
 Then switch to **bOS** with a command like:
 
 ```
-sudo bootc switch ghcr.io/bsherman/bos:TAG
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/bsherman/bos:TAG
 ```
 
 ## Verification
