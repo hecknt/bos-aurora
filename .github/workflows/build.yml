@@ -1,4 +1,4 @@
-name: Build bOS
+name: bOS Build
 on:
   schedule:
     - cron: "31 6 * * 0" # 6:31 UTC Sunday

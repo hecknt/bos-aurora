@@ -29,7 +29,7 @@ Server images are built upon [uCore](https://github.com/ublue-os/ucore).
 - `bos:ucore-nvidia` - a uCore HCI stable image with ZFS and Nvidia support
 
 
-## How it's Installed
+## How to Install
 
 Use the installation method for the respective upstream, Bluefin, uCore, etc.
 
