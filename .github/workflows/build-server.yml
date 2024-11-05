@@ -1,4 +1,4 @@
-name: Build bOS-server
+name: bOS Build Server
 on:
     workflow_call:
     workflow_dispatch:

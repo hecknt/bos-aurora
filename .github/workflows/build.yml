@@ -19,7 +19,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  push-desktop-stable:
+  build-desktop:
+    name: Desktop
     uses: ./.github/workflows/build-desktop.yml
     secrets: inherit
     with:
@@ -31,7 +32,8 @@ jobs:
 #    with:
 #        tag_version: beta
 
-  push-server:
+  build-server:
+    name: Server
     uses: ./.github/workflows/build-server.yml
     secrets: inherit
 

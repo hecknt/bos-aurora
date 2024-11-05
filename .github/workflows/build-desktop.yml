@@ -1,4 +1,4 @@
-name: Build bOS-desktop
+name: bOS Build Desktop
 on:
   workflow_call:
     inputs:
