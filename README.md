@@ -1,6 +1,7 @@
 # bOS
 
-[![bOS Build](https://github.com/bsherman/bos/actions/workflows/build.yml/badge.svg)](https://github.com/bsherman/bos/actions/workflows/build.yml)
+[![bOS Build Desktop](https://github.com/bsherman/bos/actions/workflows/build-desktop.yml/badge.svg)](https://github.com/bsherman/bos/actions/workflows/build-desktop.yml)
+[![bOS Build Server](https://github.com/bsherman/bos/actions/workflows/build-server.yml/badge.svg)](https://github.com/bsherman/bos/actions/workflows/build-server.yml)
 
 These are my personal Universal Blue image builds, customized with a few extras to make life good on my family's laptops and home servers.
 
