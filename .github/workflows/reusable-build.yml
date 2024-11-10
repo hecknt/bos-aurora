@@ -99,7 +99,7 @@ jobs:
             echo "${TAG}"
           done
 
-          echo "build_tags=${BUILD_TAGS[*]}" >> "$GITHUB_OUTPUT"
+          echo "alias_tags=${BUILD_TAGS[*]}" >> "$GITHUB_OUTPUT"
 
       - name: Verify Source Image
         uses: EyeCantCU/cosign-action/verify@58722a084c82190b57863002d494c91eabbe9e79 # v0.3.0
@@ -131,29 +131,29 @@ jobs:
         run: |
           sudo just rechunk "${{ matrix.image }}" "${{ matrix.stream }}" "${{ matrix.flavor }}"
 
-      - name: Load into Podman and Tag
+      - name: Tag Images
         shell: bash
         run: |
           set -eoux pipefail
           sudo podman images
           IMAGE="localhost/${{ env.dest_image }}:${{ env.dest_tag }}"
-          for tag in ${{ steps.generate_tags.outputs.build_tags }}; do
+          for tag in ${{ steps.generate_tags.outputs.alias_tags }}; do
             sudo podman tag $IMAGE ${{ env.dest_image }}:$tag
           done
           sudo podman tag $IMAGE rechunked-img
           sudo podman images
-
-      - name: Login to GitHub Container Registry
-        if: github.event_name != 'pull_request'
-        run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | sudo podman login ghcr.io -u ${{ github.actor }} --password-stdin
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Lowercase Registry
         id: registry_case
         uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ env.IMAGE_REGISTRY }}
+
+      - name: Login to GitHub Container Registry
+        if: github.event_name != 'pull_request'
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }} | sudo podman login ghcr.io -u ${{ github.actor }} --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Push to GHCR
         id: push
@@ -165,7 +165,7 @@ jobs:
           command: |
             set -euox pipefail
 
-            for tag in ${{ steps.build_image.outputs.tags }}; do
+            for tag in ${{ steps.generate_tags.outputs.alias_tags }}; do
               sudo podman push ${{ env.dest_image }}:${tag} ${{ steps.registry_case.outputs.lowercase }}/${{ env.dest_image }}:${tag}
             done
             digest=$(skopeo inspect docker://${{ steps.registry_case.outputs.lowercase }}/${{ env.dest_image }}:${{ env.dest_tag }} --format '{{.Digest}}')
