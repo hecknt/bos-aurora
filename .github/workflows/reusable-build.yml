@@ -168,7 +168,7 @@ jobs:
             for tag in ${{ steps.generate_tags.outputs.alias_tags }}; do
               sudo podman push ${{ env.dest_image }}:${tag} ${{ steps.registry_case.outputs.lowercase }}/${{ env.dest_image }}:${tag}
             done
-            digest=$(skopeo inspect docker://${{ steps.registry_case.outputs.lowercase }}/${{ env.dest_image }}:${{ env.dest_tag }} --format '{{.Digest}}')
+            digest=$(sudo skopeo inspect docker://${{ steps.registry_case.outputs.lowercase }}/${{ env.dest_image }}:${{ env.dest_tag }} --format '{{.Digest}}')
             echo "digest=${digest}" >> $GITHUB_OUTPUT
 
       - uses: sigstore/cosign-installer@v3.7.0
