@@ -47,7 +47,7 @@ sudo bootc switch --enforce-container-sigpolicy ghcr.io/bsherman/bos:TAG
 These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/overview/) using. You can verify the signature by running the following command:
 
 ```
-cosign verify --key cosign.pub ghcr.io/bsherman/IMAGE_NAME:TAG
+cosign verify --key cosign.pub ghcr.io/bsherman/bos:TAG
 ```
 
 ## DIY
