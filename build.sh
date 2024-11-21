@@ -15,14 +15,7 @@ if [ -d /usr/libexec/rpm-ostree/wrapped ]; then
     rm -fr /usr/libexec/rpm-ostree
 fi
 
-rpm-ostree install dnf5 dnf5-plugins
-
-# temp until https://github.com/ublue-os/main/pull/665 trickles down:
-mkdir -p /usr/share/dnf/plugins
-cat << EOF > /usr/share/dnf/plugins/copr.vendor.conf
-[main]
-distribution = fedora
-EOF
+rpm-ostree install --idempotent dnf5 dnf5-plugins
 
 case "${IMAGE}" in
 "bluefin"*)
