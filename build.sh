@@ -15,7 +15,10 @@ if [ -d /usr/libexec/rpm-ostree/wrapped ]; then
     rm -fr /usr/libexec/rpm-ostree
 fi
 
-rpm-ostree install --idempotent dnf5 dnf5-plugins
+RELEASE="$(rpm -E %fedora)"
+if [ 40 -eq ${RELEASE} ]; then
+    rpm-ostree install --idempotent dnf5 dnf5-plugins
+fi
 
 case "${IMAGE}" in
 "bluefin"*)
