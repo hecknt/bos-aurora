@@ -23,6 +23,7 @@ STEAM_PACKAGES=(
     mesa-va-drivers.i686
     mesa-vulkan-drivers.i686
     steam
+    sysfsutils
     umu-launcher
     vkBasalt.i686
     vkBasalt.x86_64
@@ -50,5 +51,7 @@ chmod +x /usr/bin/latencyflex
 sed -i 's@/usr/lib/wine/@/usr/lib64/wine/@g' /usr/bin/latencyflex
 sed -i 's@"dxvk.conf"@"/usr/share/latencyflex/dxvk.conf"@g' /usr/bin/latencyflex
 chmod +x /usr/bin/latencyflex
+
+echo 'mode class/powercap/intel-rapl:0/energy_uj = 0444' >> /etc/sysfs.conf
 
 sed -i "s@enabled=1@enabled=0@" /etc/yum.repos.d/negativo17-fedora-multimedia.repo
