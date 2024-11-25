@@ -23,7 +23,6 @@ STEAM_PACKAGES=(
     mesa-va-drivers.i686
     mesa-vulkan-drivers.i686
     steam
-    sysfsutils
     umu-launcher
     vkBasalt.i686
     vkBasalt.x86_64
@@ -52,6 +51,22 @@ sed -i 's@/usr/lib/wine/@/usr/lib64/wine/@g' /usr/bin/latencyflex
 sed -i 's@"dxvk.conf"@"/usr/share/latencyflex/dxvk.conf"@g' /usr/bin/latencyflex
 chmod +x /usr/bin/latencyflex
 
-echo 'mode class/powercap/intel-rapl:0/energy_uj = 0444' >> /etc/sysfs.conf
-
 sed -i "s@enabled=1@enabled=0@" /etc/yum.repos.d/negativo17-fedora-multimedia.repo
+
+# this allows mangohud to read CPU power wattage
+tee /usr/lib/systemd/system/sysfs-read-powercap-intel.service << EOF
+[Unit]
+Description=Set readable intel cpu power
+After=systemd-udevd.service
+After=tuned.service
+ConditionPathExists=/sys/class/powercap/intel-rapl:0/energy_uj
+
+[Service]
+Type=oneshot
+ExecStart=chmod a+r /sys/class/powercap/intel-rapl:0/energy_uj
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl enable sysfs-read-powercap-intel.service
