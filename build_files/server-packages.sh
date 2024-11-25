@@ -22,5 +22,6 @@ dnf5 install -y \
   nmap \
   p7zip \
   p7zip-plugins \
+  picocom \
   socat \
   unrar
