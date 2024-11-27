@@ -7,7 +7,6 @@ echo "Running server packages scripts..."
 
 # common packages installed to desktops and servers
 dnf5 install -y \
-  podman-machine \
   bc \
   erofs-utils \
   hdparm \
