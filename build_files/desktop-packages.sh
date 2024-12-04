@@ -7,11 +7,9 @@ echo "Running desktop packages scripts..."
 
 # common packages installed to desktops
 dnf5 install -y \
-  google-noto-sans-fonts \
-  ibm-plex-fonts-all \
   gh \
   gnome-shell-extension-no-overview \
-  google-noto-sans-fonts \
+  ibm-plex-fonts-all \
   libpcap-devel \
   libretls \
   ltrace \
