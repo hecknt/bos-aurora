@@ -17,17 +17,6 @@ if [[ ${IMAGE} =~ bluefin|bazzite ]]; then
   echo "Compiling gschema to include bos setting overrides" && \
   glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
 
-  # remove extra google-noto fonts, leaving only what silverblue provides
-  dnf5 remove -y \
-    google-noto-fonts-all \
-    google-noto-sans-balinese-fonts \
-    google-noto-sans-cjk-fonts \
-    google-noto-sans-javanese-fonts \
-    google-noto-sans-sundanese-fonts
-  rm -rf /usr/share/fonts/noto-cjk
-  dnf5 install -y \
-    google-noto-sans-cjk-vf-fonts
-
   # remove bluefin provided Inter fonts since we add the RPM
   rm -rf /usr/share/fonts/inter
 fi
