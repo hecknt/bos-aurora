@@ -19,4 +19,7 @@ if [[ ${IMAGE} =~ bluefin|bazzite ]]; then
 
   # remove bluefin provided Inter fonts since we add the RPM
   rm -rf /usr/share/fonts/inter
+
+  # re-install firefox
+  dnf5 install -y firefox firefox-langpacks
 fi
