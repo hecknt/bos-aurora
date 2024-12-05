@@ -3,7 +3,7 @@
 set -euox pipefail
 
 echo "Running desktop packages scripts..."
-#/ctx/build_files/desktop-1password.sh
+/ctx/build_files/desktop-1password.sh
 
 # common packages installed to desktops
 dnf5 install -y \
