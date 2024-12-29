@@ -5,9 +5,13 @@ set -euox pipefail
 echo "Running desktop packages scripts..."
 /ctx/build_files/desktop-1password.sh
 
+# ublue staging repo needed for ghostty, etc
+dnf5 -y copr enable ublue-os/staging
+
 # common packages installed to desktops
 dnf5 install -y \
   gh \
+  ghostty \
   gnome-shell-extension-no-overview \
   ibm-plex-fonts-all \
   libpcap-devel \
@@ -19,6 +23,8 @@ dnf5 install -y \
   strace \
   udica \
   ydotool
+
+dnf5 -y copr disable ublue-os/staging
 
 # github direct installs
 /ctx/build_files/github-release-install.sh twpayne/chezmoi x86_64
