@@ -1,5 +1,5 @@
-ARG BASE_IMAGE="bluefin"
-ARG IMAGE="bluefin"
+ARG BASE_IMAGE="aurora"
+ARG IMAGE="aurora"
 ARG TAG_VERSION="stable-daily"
 
 FROM scratch AS ctx
@@ -7,8 +7,8 @@ COPY / /
 
 FROM ghcr.io/ublue-os/${BASE_IMAGE}:${TAG_VERSION}
 
-ARG BASE_IMAGE="bluefin"
-ARG IMAGE="bluefin"
+ARG BASE_IMAGE="aurora"
+ARG IMAGE="aurora"
 
 RUN --mount=type=bind,from=ctx,src=/,dst=/ctx \
     mkdir -p /var/lib/alternatives && \
