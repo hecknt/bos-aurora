@@ -4,7 +4,7 @@ set -euox pipefail
 
 echo "Tweaking existing desktop config..."
 
-if [[ ${IMAGE} =~ bluefin|bazzite ]]; then
+if [[ ${IMAGE} =~ bluefin ]]; then
   # copy system files
   rsync -rvK /ctx/system_files/silverblue/ /
 
@@ -18,5 +18,10 @@ if [[ ${IMAGE} =~ bluefin|bazzite ]]; then
   glib-compile-schemas /usr/share/glib-2.0/schemas &>/dev/null
 
   # remove bluefin provided Inter fonts since we add the RPM
+  rm -rf /usr/share/fonts/inter
+fi
+
+if [[ ${IMAGE} =~ aurora|bazzite ]]; then
+  # remove aurora provided Inter fonts since we add the RPM
   rm -rf /usr/share/fonts/inter
 fi

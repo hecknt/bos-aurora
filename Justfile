@@ -6,10 +6,8 @@ rechunker_image := "ghcr.io/hhd-dev/rechunk:v1.0.1"
 images := '(
     [aurora]="aurora"
     [aurora-dx]="aurora-dx"
-    [bazzite]="bazzite-gnome"
-    [bazzite-deck]="bazzite-deck-gnome"
-    [bluefin]="bluefin"
-    [bluefin-dx]="bluefin-dx"
+    [bazzite]="bazzite"
+    [bazzite-deck]="bazzite-deck"
     [ucore-minimal]="ucore-minimal"
     [ucore]="ucore"
     [ucore-hci]="ucore-hci"
@@ -105,9 +103,9 @@ validate image="" tag="" flavor="":
             exit 1
         fi
     fi
-    if [[ "$checkimage" =~ bluefin ]]; then
+    if [[ "$checkimage" =~ aurora ]]; then
         if [[ "$checktag" =~ testing ]]; then
-            echo "Bluefin does not build testing tag..."
+            echo "Aurora does not build testing tag..."
             exit 1
         fi
     fi
@@ -161,7 +159,7 @@ gen-build-src-dst image="" tag="" flavor="":
                 source_tag="${srctag}-${srcflavor}-zfs"
             fi
         fi
-    elif [[ "${image}" =~ bluefin && "${tag}" == stable ]]; then
+    elif [[ "${image}" =~ aurora && "${tag}" == stable ]]; then
         source_tag="${srctag}-daily"
     else
         source_tag="${srctag}"
@@ -199,7 +197,7 @@ sudoif command *args:
 
 # Build Image
 [group('Image')]
-build image="bluefin" tag="stable" flavor="main" rechunk="0":
+build image="aurora" tag="stable" flavor="main" rechunk="0":
     #!/usr/bin/bash
     set -eoux pipefail
     image={{ image }}
@@ -239,13 +237,13 @@ build image="bluefin" tag="stable" flavor="main" rechunk="0":
 
 # Build Image and Rechunk
 [group('Image')]
-build-rechunk image="bluefin" tag="stable" flavor="main":
+build-rechunk image="aurora" tag="stable" flavor="main":
     @just build {{ image }} {{ tag }} {{ flavor }} 1
 
 # Rechunk Image
 [group('Image')]
 [private]
-rechunk image="bluefin" tag="stable" flavor="main":
+rechunk image="aurora" tag="stable" flavor="main":
     #!/usr/bin/bash
     set -eoux pipefail
 
@@ -349,7 +347,7 @@ rechunk image="bluefin" tag="stable" flavor="main":
 
 # Run Container
 [group('Image')]
-run image="bluefin" tag="stable" flavor="main":
+run image="aurora" tag="stable" flavor="main":
     #!/usr/bin/bash
     set -eoux pipefail
     image={{ image }}
@@ -374,7 +372,7 @@ run image="bluefin" tag="stable" flavor="main":
 
 # Get Fedora Version of an image
 [group('Utility')]
-fedora_version image="bluefin" tag="stable" flavor="main":
+fedora_version image="aurora" tag="stable" flavor="main":
     #!/usr/bin/bash
     set -eou pipefail
     just validate {{ image }} {{ tag }} {{ flavor }}

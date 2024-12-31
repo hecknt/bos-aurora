@@ -17,10 +17,10 @@ EOF
 fi
 
 case "${IMAGE}" in
-"bazzite"*|"bluefin"*)
+"bluefin"*)
     base_image="silverblue"
     ;;
-"aurora"*)
+"bazzite"*|"aurora"*)
     base_image="kinoite"
     ;;
 "cosmic"*)

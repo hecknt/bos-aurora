@@ -1,30 +1,27 @@
-# bOS
+# bOS-aurora
 
-[![bOS Build Desktop](https://github.com/bsherman/bos/actions/workflows/build-desktop.yml/badge.svg)](https://github.com/bsherman/bos/actions/workflows/build-desktop.yml)
-[![bOS Build Server](https://github.com/bsherman/bos/actions/workflows/build-server.yml/badge.svg)](https://github.com/bsherman/bos/actions/workflows/build-server.yml)
+[![bOS Build Desktop](https://github.com/hecknt/bos/actions/workflows/build-desktop.yml/badge.svg)](https://github.com/hecknt/bos/actions/workflows/build-desktop.yml)
+[![bOS Build Server](https://github.com/hecknt/bos/actions/workflows/build-server.yml/badge.svg)](https://github.com/hceknt/bos/actions/workflows/build-server.yml)
 
-These are my personal Universal Blue image builds, customized with a few extras to make life good on my family's laptops and home servers.
-
-The name is intentionally ambiguous and fun.  Is it "boss", or "bee-O-S", or "bee-aws"?
-
+These are my personal Universal Blue image builds, customized with a few extras for myself.
 
 ## Under the Hood
 
-There's a single image name `bos` with multiple tags. The idea is, *I run **bOS** for all my use cases.*
+There's a single image name `bos` with multiple tags.
 
 
 ### Desktops
 
-Desktop(and laptop) images are built upon [Bluefin](https://github.com/ublue-os/bluefin).
+Desktop/laptop images are built upon [Aurora](https://github.com/ublue-os/aurora).
 
-- `bos:bluefin` - a Bluefin stable-daily image with ZFS support
-- `bos:bluefin-nvidia` - a Bluefin stable-daily image with ZFS and Nvidia support
-- `bos:bluefin-dx` - a Bluefin stable-daily image with ZFS support and extra developer features
-- `bos:bluefin-dx-nvidia` - a Bluefin stable-daily image with ZFS and Nvidia support and extra developer features
+- `bos:aurora` - an Aurora stable-daily image with ZFS support
+- `bos:aurora-nvidia` - an Aurora stable-daily image with ZFS and Nvidia support
+- `bos:aurora-dx` - an Aurora stable-daily image with ZFS support and extra developer features
+- `bos:aurora-dx-nvidia` - an Aurora stable-daily image with ZFS and Nvidia support and extra developer features
 
 ### Servers
 
-Server images are built upon [uCore](https://github.com/ublue-os/ucore).
+Server images are not being built yet. But when they are built, they will be built upon [uCore](https://github.com/ublue-os/ucore).
 
 - `bos:ucore` - a uCore stable image with ZFS support
 - `bos:ucore-nvidia` - a uCore stable image with ZFS and Nvidia support
@@ -34,12 +31,12 @@ Server images are built upon [uCore](https://github.com/ublue-os/ucore).
 
 ## How to Install
 
-Use the installation method for the respective upstream, Bluefin, uCore, etc.
+Use the installation method for the respective upstream, Aurora, uCore, etc.
 
 Then switch to **bOS** with a command like:
 
 ```
-sudo bootc switch --enforce-container-sigpolicy ghcr.io/bsherman/bos:TAG
+sudo bootc switch --enforce-container-sigpolicy ghcr.io/hecknt/bos:TAG
 ```
 
 ## Verification
@@ -47,12 +44,12 @@ sudo bootc switch --enforce-container-sigpolicy ghcr.io/bsherman/bos:TAG
 These images are signed with sigstore's [cosign](https://docs.sigstore.dev/cosign/overview/) using. You can verify the signature by running the following command:
 
 ```
-cosign verify --key cosign.pub ghcr.io/bsherman/bos:TAG
+cosign verify --key cosign.pub ghcr.io/hecknt/bos:TAG
 ```
 
 ## DIY
 
-This repo was built on the [Universal Blue Image Template](https://github.com/ublue-os/image-template) though it's been added to significantly.
+This repo is built off of bhserman's [bOS](https://github.com/bhserman/bos), which itself was built off the [Universal Blue Image Template](https://github.com/ublue-os/image-template), although it has been added to significantly.
 
 That template can be used to extend any image you like, Aurora, Bazzite, Bluefin, uCore or even **bOS** so you can make your own ***bOS***!
 
@@ -60,5 +57,5 @@ Also, if you just want to tinker, the images built here can be built locally usi
 
 ```
 # example
-just build bluefin
+just build aurora
 ```
