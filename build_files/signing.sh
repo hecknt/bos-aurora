@@ -12,7 +12,7 @@ if [ -f /usr/etc/containers/policy.json ]; then
 fi
 
 cat <<<"$(jq '.transports.docker |=. + {
-   "ghcr.io/bsherman/bos": [
+   "ghcr.io/hecknt/bos": [
     {
         "type": "sigstoreSigned",
         "keyPath": "/etc/pki/containers/bos.pub",
@@ -25,7 +25,7 @@ cp /tmp/policy.json /etc/containers/policy.json
 cp /ctx/cosign.pub /etc/pki/containers/bos.pub
 tee /etc/containers/registries.d/bos.yaml <<EOF
 docker:
-  ghcr.io/bsherman/bos:
+  ghcr.io/hecknt/bos:
     use-sigstore-attachments: true
 EOF
 

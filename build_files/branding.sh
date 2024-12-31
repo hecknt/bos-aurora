@@ -7,8 +7,8 @@ if [[ "${IMAGE}" =~ cosmic|ucore ]]; then
 {
   "image-name": "",
   "image-flavor": "",
-  "image-vendor": "bsherman",
-  "image-ref": "ostree-image-signed:docker://ghcr.io/bsherman/bos",
+  "image-vendor": "hecknt",
+  "image-ref": "ostree-image-signed:docker://ghcr.io/hecknt/bos",
   "image-tag": "",
   "base-image-name": "",
   "fedora-version": ""
@@ -39,8 +39,8 @@ fi
 # Branding
 cat <<<"$(jq ".\"image-name\" |= \"bos\" |
               .\"image-flavor\" |= \"${image_flavor}\" |
-              .\"image-vendor\" |= \"bsherman\" |
-              .\"image-ref\" |= \"ostree-image-signed:docker://ghcr.io/bsherman/bos\" |
+              .\"image-vendor\" |= \"hecknt\" |
+              .\"image-ref\" |= \"ostree-image-signed:docker://ghcr.io/hecknt/bos\" |
               .\"image-tag\" |= \"${IMAGE}${BETA:-}\" |
               .\"base-image-name\" |= \"${base_image}\" |
               .\"fedora-version\" |= \"$(rpm -E %fedora)\"" \
