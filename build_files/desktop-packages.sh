@@ -12,6 +12,8 @@ dnf5 -y copr enable ublue-os/staging
 dnf5 install -y \
   gh \
   ghostty \
+  kitty \
+  picard \ 
   gnome-shell-extension-no-overview \
   ibm-plex-fonts-all \
   libpcap-devel \

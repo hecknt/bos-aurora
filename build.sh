@@ -21,6 +21,11 @@ if [ 40 -eq ${RELEASE} ]; then
 fi
 
 case "${IMAGE}" in
+"aurora"*)
+    /ctx/build_files/desktop-changes.sh
+    /ctx/build_files/desktop-fixups-steam.sh
+    /ctx/build_files/desktop-packages.sh
+    ;;
 "bluefin"*)
     /ctx/build_files/desktop-changes.sh
     /ctx/build_files/desktop-fixups-steam.sh
