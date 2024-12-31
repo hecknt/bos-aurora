@@ -1,7 +1,7 @@
 my_image := "bos"
 my_image_styled := "bOS"
 repo_name := "bos"
-repo_organization := "bsherman"
+repo_organization := "hecknt"
 rechunker_image := "ghcr.io/hhd-dev/rechunk:v1.0.1"
 images := '(
     [aurora]="aurora"
