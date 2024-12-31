@@ -3,7 +3,6 @@
 set -euox pipefail
 
 echo "Running desktop packages scripts..."
-/ctx/build_files/desktop-1password.sh
 
 # ublue staging repo needed for ghostty, etc
 dnf5 -y copr enable ublue-os/staging
@@ -13,7 +12,7 @@ dnf5 install -y \
   gh \
   ghostty \
   kitty \
-  picard \ 
+  picard \
   gnome-shell-extension-no-overview \
   ibm-plex-fonts-all \
   libpcap-devel \
