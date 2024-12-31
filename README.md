@@ -1,7 +1,7 @@
 # bOS-aurora
 
-[![bOS Build Desktop](https://github.com/hecknt/bos/actions/workflows/build-desktop.yml/badge.svg)](https://github.com/hecknt/bos/actions/workflows/build-desktop.yml)
-[![bOS Build Server](https://github.com/hecknt/bos/actions/workflows/build-server.yml/badge.svg)](https://github.com/hceknt/bos/actions/workflows/build-server.yml)
+[![bOS Build Desktop](https://github.com/hecknt/bos-aurora/actions/workflows/build-desktop.yml/badge.svg)](https://github.com/hecknt/bos-aurora/actions/workflows/build-desktop.yml)
+[![bOS Build Server](https://github.com/hecknt/bos-aurora/actions/workflows/build-server.yml/badge.svg)](https://github.com/hceknt/bos-aurora/actions/workflows/build-server.yml)
 
 These are my personal Universal Blue image builds, customized with a few extras for myself.
 
