@@ -27,7 +27,7 @@ jobs:
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
-      images: '["bluefin", "bluefin-dx"]'
+      images: '["aurora", "aurora-dx"]'
       streams: '["stable"]'
       flavors: '["main", "nvidia"]'
 #  build-desktop-testing:
