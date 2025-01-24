@@ -160,7 +160,7 @@ gen-build-src-dst image="" tag="" flavor="":
             fi
         fi
     elif [[ "${image}" =~ aurora && "${tag}" == stable ]]; then
-        source_tag="${srctag}-daily"
+        source_tag="${srctag}"
     else
         source_tag="${srctag}"
     fi

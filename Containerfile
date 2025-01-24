@@ -1,6 +1,6 @@
 ARG BASE_IMAGE="aurora"
 ARG IMAGE="aurora"
-ARG TAG_VERSION="stable-daily"
+ARG TAG_VERSION="stable"
 
 FROM scratch AS ctx
 COPY / /

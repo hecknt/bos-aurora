@@ -14,10 +14,10 @@ There's a single image name `bos` with multiple tags.
 
 Desktop/laptop images are built upon [Aurora](https://github.com/ublue-os/aurora).
 
-- `bos:aurora` - an Aurora stable-daily image with ZFS support
-- `bos:aurora-nvidia` - an Aurora stable-daily image with ZFS and Nvidia support
-- `bos:aurora-dx` - an Aurora stable-daily image with ZFS support and extra developer features
-- `bos:aurora-dx-nvidia` - an Aurora stable-daily image with ZFS and Nvidia support and extra developer features
+- `bos:aurora` - an Aurora stable image with ZFS support
+- `bos:aurora-nvidia` - an Aurora stable image with ZFS and Nvidia support
+- `bos:aurora-dx` - an Aurora stable image with ZFS support and extra developer features
+- `bos:aurora-dx-nvidia` - an Aurora stable image with ZFS and Nvidia support and extra developer features
 
 ### Servers
 
