@@ -24,11 +24,9 @@ dnf5 install -y \
   ydotool \
   btop \
   htop \
-  # fonts
   rsms-inter-fonts \
   ibm-plex-fonts-all \
   jetbrains-mono-fonts-all \
-  # virtual machine stuff - install virt-manager through flatpak
   libvirt \
   libvirt-daemon-kvm \
   libvirt-ssh-proxy \
