@@ -5,12 +5,12 @@ set -ouex pipefail
 case "${IMAGE}" in
 "aurora"*)
     /ctx/build_files/desktop-changes.sh
-    /ctx/build_files/desktop-fixups-steam.sh
+    /ctx/build_files/desktop-steam.sh
     /ctx/build_files/desktop-packages.sh
     ;;
 "bluefin"*)
     /ctx/build_files/desktop-changes.sh
-    /ctx/build_files/desktop-fixups-steam.sh
+    /ctx/build_files/desktop-steam.sh
     /ctx/build_files/desktop-packages.sh
     ;;
 "bazzite"*)
